@@ -52,3 +52,7 @@ tr:nth-child(odd) {background: #1abc9c}
     margin-bottom: 15px;
     background: #cccccc;
 }
+
+.failed{
+    color:red;
+}

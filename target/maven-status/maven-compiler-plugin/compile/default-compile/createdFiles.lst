@@ -1,10 +1,13 @@
 m\config\DispatcherServletInitializer.class
 m\crud\dao\CustomerDAOImp.class
+m\config\DemoSecurityConfig.class
 m\crud\controller\TestController.class
+m\crud\TestDbServlet.class
+m\crud\entity\Customer.class
 m\crud\dao\CustomerDAO.class
 m\crud\controller\CustomerController.class
 m\crud\service\CustomerServiceImp.class
 m\crud\service\CustomerService.class
 m\config\AppConfig.class
-m\crud\TestDbServlet.class
-m\crud\entity\Customer.class
+m\config\HibernateConfig.class
+m\config\SecurityWebApplicationInitializer.class

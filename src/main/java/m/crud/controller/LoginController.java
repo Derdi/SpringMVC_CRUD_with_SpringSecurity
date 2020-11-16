@@ -1,14 +1,14 @@
 package m.crud.controller;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class TestController {
+public class LoginController {
 
-    @GetMapping("/home")
-    public String showHome(){
-        return "home";
+    @GetMapping("/showMyLoginPage")
+    public String showMyLoginPage(){
+
+        return "fancy-login";
     }
 }
