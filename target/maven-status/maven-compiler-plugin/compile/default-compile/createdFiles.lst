@@ -9,5 +9,6 @@ m\crud\controller\CustomerController.class
 m\crud\service\CustomerServiceImp.class
 m\crud\service\CustomerService.class
 m\config\AppConfig.class
+m\crud\controller\LoginController.class
 m\config\HibernateConfig.class
 m\config\SecurityWebApplicationInitializer.class

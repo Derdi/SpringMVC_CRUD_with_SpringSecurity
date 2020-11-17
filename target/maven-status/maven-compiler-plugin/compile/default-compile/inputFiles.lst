@@ -3,6 +3,7 @@ F:\IdeaProjects\springM\src\main\java\m\crud\entity\Customer.java
 F:\IdeaProjects\springM\src\main\java\m\crud\TestDbServlet.java
 F:\IdeaProjects\springM\src\main\java\m\crud\controller\CustomerController.java
 F:\IdeaProjects\springM\src\main\java\m\config\DemoSecurityConfig.java
+F:\IdeaProjects\springM\src\main\java\m\crud\controller\LoginController.java
 F:\IdeaProjects\springM\src\main\java\m\crud\service\CustomerService.java
 F:\IdeaProjects\springM\src\main\java\m\config\DispatcherServletInitializer.java
 F:\IdeaProjects\springM\src\main\java\m\config\HibernateConfig.java

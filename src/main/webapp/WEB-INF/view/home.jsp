@@ -18,8 +18,24 @@
     <hr>
         User: <security:authentication property="principal.username" />
     <br/><br/>
-    Roles(s): <security:authentication property="principal.authorities" />
+        Roles(s): <security:authentication property="principal.authorities" />
     <hr>
+    <p>
+        <a href="${pageContext.request.contextPath}/customer/list">Customer relationship management</a>
+    </p>
+
+
+    <security:authorize access="hasRole('MANAGER')">
+        <p>
+            <a href="${pageContext.request.contextPath}/leaders">Manager panel</a>
+        </p>
+    </security:authorize>
+
+    <security:authorize access="hasRole('ADMIN')">
+        <p>
+            <a href="${pageContext.request.contextPath}/systems">Admin panel</a>
+        </p>
+    </security:authorize>
 
     <form:form action="${pageContext.request.contextPath}/logout" method="POST">
 

@@ -2,19 +2,28 @@ package m.config;
 
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
 import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
+@PropertySource("classpath:persistence.properties")
 public class HibernateConfig {
+
+    @Autowired
+    private Environment env;
 
     @Bean
     public LocalSessionFactoryBean getSessionFactory() throws PropertyVetoException {
@@ -61,6 +70,40 @@ public class HibernateConfig {
         HibernateTransactionManager transactionManager = new HibernateTransactionManager();
         transactionManager.setSessionFactory(getSessionFactory().getObject());
         return transactionManager;
+    }
+
+    @Bean
+    public DataSource securityDataSource(){
+
+        ComboPooledDataSource securityDataSource = new ComboPooledDataSource();
+
+        try {
+            securityDataSource.setDriverClass(env.getProperty("jdbc.driver"));
+        } catch (PropertyVetoException e) {
+            throw new RuntimeException(e);
+        }
+
+        securityDataSource.setJdbcUrl(env.getProperty("jdbc.url"));
+        securityDataSource.setUser(env.getProperty("jdbc.user"));
+        securityDataSource.setPassword(env.getProperty("jdbc.password"));
+
+
+
+        securityDataSource.setInitialPoolSize(getIntProperty("connection.pool.initialPoolSize"));
+        securityDataSource.setMinPoolSize(getIntProperty("connection.pool.minPoolSize"));
+        securityDataSource.setMaxPoolSize(getIntProperty("connection.pool.maxPoolSize"));
+        securityDataSource.setMaxIdleTime(getIntProperty("connection.pool.maxIdleTime"));
+
+
+        return securityDataSource;
+
+
+    }
+
+    private int getIntProperty(String propName){
+        String propVal = env.getProperty(propName);
+        int intPropVal = Integer.parseInt(propVal);
+        return intPropVal;
     }
 
 }
