@@ -30,7 +30,7 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
-                .antMatchers("/").hasRole("EMPLOYEE")   // TODO roles should be enums
+                .antMatchers("/**").hasRole("EMPLOYEE")   // TODO roles should be enums
                 .antMatchers("/leaders/**").hasRole("MANAGER")
                 .antMatchers("/systems/**").hasRole("ADMIN")
                 .antMatchers("/myResources/css/**").permitAll() //TODO not working- css still filtered
