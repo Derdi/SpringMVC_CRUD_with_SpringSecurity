@@ -33,7 +33,7 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**").hasRole("EMPLOYEE")   // TODO roles should be enums
                 .antMatchers("/leaders/**").hasRole("MANAGER")
                 .antMatchers("/systems/**").hasRole("ADMIN")
-                .antMatchers("/myResources/css/**").permitAll() //TODO not working- css still filtered
+                .antMatchers("/myResources/css/**").permitAll() 
                 .and()
                 .formLogin()
                     .loginPage("/showMyLoginPage")
