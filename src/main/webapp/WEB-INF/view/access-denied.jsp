@@ -6,6 +6,6 @@
 <body>
     <h2>You are not authorized to access this page</h2>
 
-    <a href="${pageContext.request.contextPath}">Back to Home Page</a>
+    <a href="${pageContext.request.contextPath}/home">Back to Home Page</a>
 </body>
 </html>

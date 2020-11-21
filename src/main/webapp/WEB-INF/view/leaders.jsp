@@ -10,6 +10,6 @@
 
     <p>Work in progress...</p>
 
-    <a href="${pageContext.request.contextPath}/">Back to Home Page</a>
+    <a href="${pageContext.request.contextPath}/home">Back to Home Page</a>
 </body>
 </html>

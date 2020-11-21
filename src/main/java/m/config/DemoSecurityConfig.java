@@ -30,14 +30,16 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
-                .antMatchers("/**").hasRole("EMPLOYEE")   // TODO roles should be enums
+                .antMatchers("/").permitAll()  // allow public access to home page
+                .antMatchers("/home").hasRole("EMPLOYEE")
                 .antMatchers("/leaders/**").hasRole("MANAGER")
                 .antMatchers("/systems/**").hasRole("ADMIN")
-                .antMatchers("/myResources/css/**").permitAll() 
+                .antMatchers("/myResources/css/**").permitAll()
                 .and()
                 .formLogin()
                     .loginPage("/showMyLoginPage")
                     .loginProcessingUrl("/authenticateTheUser")
+                    .defaultSuccessUrl("/home")
                     .permitAll()
                 .and()
                 .logout().permitAll()

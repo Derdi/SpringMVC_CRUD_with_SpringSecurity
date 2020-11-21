@@ -59,7 +59,13 @@
                 </table>
 
             </div>
+            <p>
+                <a style="text-decoration: none;" href="${pageContext.request.contextPath}/home">Back to Home Page</a>
+            </p>
         </div>
+
+
+
     </body>
 
 </html>
